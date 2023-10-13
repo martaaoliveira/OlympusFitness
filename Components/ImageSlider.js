@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Image, Dimensions } from "react-native";
 import Slideshow from "react-native-image-slider-show";
+
+const { width, height } = Dimensions.get("window");
+
 const image1 = require('../assets/images/PT.jpg');
 const image2 = require('../assets/images/nutricao.jpg');
 const image3 = require('../assets/images/osteopatia.jpg');
 const image4 = require('../assets/images/regimelivre.jpg');
 const image5 = require('../assets/images/aulasgrupo.jpg');
-
 
 const dataSource = [
   {
@@ -65,8 +67,8 @@ const ImageSlider = ({ navigation }) => {
         dataSource={dataSource}
         position={position}
         onPositionChanged={setPosition}
-        height={490} // Set the desired height for the container
-        width={600}  // Set the desired width for the container
+        height={height * 0.5} // Use a percentage of the screen height
+        width={width}  // Use the full screen width
         resizeMode="cover" // You can try different resizeMode values like 'cover', 'contain', or 'stretch'
         onPress={() => handleImageClick(dataSource[position].navigateTo)} // Handle image press
       />

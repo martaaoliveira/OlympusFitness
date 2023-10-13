@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     flex: 1,
-    marginLeft: width * 0.03, // Adjust margin using 2% of the screen width
+    marginLeft: width * 0.002, // Adjust margin using 2% of the screen width
   },
   logoText: {
     color: "white",
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     // Alter the style as needed
   },
   navText: {
-    color: "pink",
+    color: "black",
     fontSize: height * 0.02, // Adjust font size using 2.2% of the screen height
   },
   activeNavText: {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   logoImage: {
     width: width * 0.1, // Adjust image width using 20% of the screen width
-    height: height * 0.08, // Adjust image height using 8% of the screen height
+    height: height * 0.1, // Adjust image height using 8% of the screen height
   },
 });
 

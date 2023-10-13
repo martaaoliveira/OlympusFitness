@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
+
+const { height } = Dimensions.get("window");
 
 const PageTitle = ({ navigation }) => {
   const goToSobre = () => {
@@ -21,22 +23,22 @@ const PageTitle = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginTop: 350,
-    marginLeft: -1300,
+    marginTop: height * 0.3, // Use a percentage of the screen height
+    marginLeft: height*-1.2,
   },
   olympusText: {
-    fontSize: 80,
+    fontSize: height * 0.1, // Use a percentage of the screen height
     fontWeight: "bold",
     color: "gold",
   },
   fitnessText: {
-    fontSize: 70,
+    fontSize: height * 0.09, // Use a percentage of the screen height
     fontWeight: "bold",
     color: "gold",
   },
   subText: {
-    fontSize: 16,
-    marginTop: 20,
+    fontSize: height * 0.02, // Use a percentage of the screen height
+    marginTop: height * 0.02, // Use a percentage of the screen height
     color: "white",
     textAlign: "center",
   },
@@ -44,11 +46,11 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     padding: 10,
     borderRadius: 5,
-    marginTop: 40,
+    marginTop: height * 0.04, // Use a percentage of the screen height
   },
   startText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: height * 0.02, // Use a percentage of the screen height
     textAlign: "center",
   },
 });

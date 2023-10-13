@@ -23,6 +23,11 @@
       "package": "com.OlympoFintess.web"
     },
     "web": {
+      "build": {
+        "outputDir": "web-build"
+      },
+      "publicPath": "./",
+      "entryPoint": "src/index.js"
     }
   }
 }

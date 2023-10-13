@@ -63,15 +63,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "white",
     height: height * 0.1, // Use 10% of the screen height
-    paddingHorizontal: width * 0.02, // Use 2% of the screen width
+    paddingHorizontal: width * 0.03, // Use 2% of the screen width
   },
   logoContainer: {
     flex: 1,
-    marginLeft: width * 0.01, // Adjust margin using 2% of the screen width
+    marginLeft: width * 0.03, // Adjust margin using 2% of the screen width
   },
   logoText: {
     color: "white",
-    fontSize: height * 0.025, // Adjust font size using 2.5% of the screen height
+    fontSize: height * 0.02, // Adjust font size using 2.5% of the screen height
     fontWeight: "bold",
   },
   navItems: {
@@ -83,15 +83,15 @@ const styles = StyleSheet.create({
     // Alter the style as needed
   },
   navText: {
-    color: "black",
-    fontSize: height * 0.022, // Adjust font size using 2.2% of the screen height
+    color: "pink",
+    fontSize: height * 0.02, // Adjust font size using 2.2% of the screen height
   },
   activeNavText: {
     color: "pink",
-    fontSize: height * 0.022,
+    fontSize: height * 0.02,
   },
   logoImage: {
-    width: width * 0.07, // Adjust image width using 20% of the screen width
+    width: width * 0.1, // Adjust image width using 20% of the screen width
     height: height * 0.08, // Adjust image height using 8% of the screen height
   },
 });

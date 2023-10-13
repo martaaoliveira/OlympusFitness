@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+
+const { width, height } = Dimensions.get("window");
 
 const NavigationBar = () => {
   const navigation = useNavigation();
@@ -29,10 +31,9 @@ const NavigationBar = () => {
   return (
     <View style={styles.navbar}>
       <View style={styles.logoContainer}>
-        {/* Use the Image component for your logo */}
         <TouchableOpacity onPress={goToHome}>
           <Image
-            source={require("./assets/images/logo.png")} // Replace with the actual path to your logo image
+            source={require("./assets/images/logo.png")}
             style={styles.logoImage}
           />
         </TouchableOpacity>
@@ -60,16 +61,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "white", // Set your desired background color
-    height: 90,
-    paddingHorizontal: 10,
+    backgroundColor: "white",
+    height: height * 0.1, // Use 10% of the screen height
+    paddingHorizontal: width * 0.02, // Use 2% of the screen width
   },
   logoContainer: {
     flex: 1,
+    marginLeft: width * 0.01, // Adjust margin using 2% of the screen width
   },
   logoText: {
-    color: "white", // Set your desired logo text color
-    fontSize: 20,
+    color: "white",
+    fontSize: height * 0.025, // Adjust font size using 2.5% of the screen height
     fontWeight: "bold",
   },
   navItems: {
@@ -78,19 +80,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   navItem: {
-    // Altere o estilo conforme necessário
+    // Alter the style as needed
   },
   navText: {
-    color: "black", // Set your desired nav item text color
-    fontSize: 18,
+    color: "black",
+    fontSize: height * 0.022, // Adjust font size using 2.2% of the screen height
   },
   activeNavText: {
-    color: "pink", // Set the color for the active route
-    fontSize: 18,
+    color: "pink",
+    fontSize: height * 0.022,
   },
   logoImage: {
-    width: 150, // Set the width of your logo
-    height: 80, // Set the height of your logo
+    width: width * 0.07, // Adjust image width using 20% of the screen width
+    height: height * 0.08, // Adjust image height using 8% of the screen height
   },
 });
 

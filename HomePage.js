@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    height: height * 1.3, // Usar uma porcentagem da altura do dispositivo
+    height: height * 1, // Usar uma porcentagem da altura do dispositivo
   },
-  contentContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  // contentContainer: {
+  //   flexGrow: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // },
 });
 
 export default HomePage;

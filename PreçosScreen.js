@@ -18,6 +18,8 @@ const PreçosScreen = () => {
           {renderContactInfo("1")}
           {renderContactInfo("2")}
           {renderContactInfo("3")}
+          {renderContactInfo("4")}
+
         </View>
       </View>
     </View>
@@ -53,17 +55,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   contactInfoContainer: {
-    flexDirection: "row", // Display contactInfo side by side
+    flexDirection: "column", // Display contactInfo side by side
     justifyContent: "space-between", // Add spacing between contactInfo
     paddingHorizontal: "5%",
     marginTop: "1%",
-    flex: 14,
+    flex: 18,
   },
   contactInfo: {
     backgroundColor: "white",
     borderRadius: 16,
-    padding: 20,
-    width: "30%", // 3 containers side by side with spacing
+    padding: 10,
+    width: "40%", // 3 containers side by side with spacing
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -74,9 +76,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   contactTitle: {
-    fontSize: "3vw", // Responsive font size
+    fontSize: "2vw", // Responsive font size
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 20,
     color: "pink", // Custom text color
   },
 });

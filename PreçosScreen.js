@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image, CheckBox } from "react-native";
+import React from "react";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import NavigationBar from "./NavigationBar";
 
-const yourImage = require("./assets/images/espaço.jpg");
 const yourNewImage = require("./assets/images/background_contactos.jpg");
 
 const PreçosScreen = () => {
-
-
   return (
     <View style={styles.container}>
       <NavigationBar title="Formulário" />
@@ -15,32 +12,25 @@ const PreçosScreen = () => {
       <Image source={yourNewImage} style={styles.topImage} />
       <View style={styles.contentBelowImage}>
         <ScrollView contentContainerStyle={styles.formContainer}>
+          {/* Your form content here */}
         </ScrollView>
-        <View style={styles.contactInfoContainer1}>
-          <View style={styles.contactInfo}>
-            <Text style={styles.contactTitle}>Os nossos Contactos</Text>
-            <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
-            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
-            <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
-          </View>
-        </View>
-        <View style={styles.contactInfoContainer2}>
-          <View style={styles.contactInfo}>
-            <Text style={styles.contactTitle}>Os nossos Contactos</Text>
-            <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
-            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
-            <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
-          </View>
-        </View>
-        <View style={styles.contactInfoContainer3}>
-          <View style={styles.contactInfo}>
-            <Text style={styles.contactTitle}>Os nossos Contactos</Text>
-            <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
-            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
-            <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
-          </View>
+        <View style={styles.contactInfoContainer}>
+          {renderContactInfo("1")}
+          {renderContactInfo("2")}
+          {renderContactInfo("3")}
         </View>
       </View>
+    </View>
+  );
+};
+
+const renderContactInfo = (contactNumber) => {
+  return (
+    <View style={styles.contactInfo}>
+      <Text style={styles.contactTitle}>Os nossos Contactos {contactNumber}</Text>
+      <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
+      <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
+      <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
     </View>
   );
 };
@@ -50,7 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-
   topImage: {
     width: "100%",
     height: 200,
@@ -60,29 +49,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   formContainer: {
-    paddingHorizontal: 20,
-    marginTop: 0,
+    paddingHorizontal: "5%",
+    marginTop: 10,
   },
-  contactInfoContainer1: {
-    paddingHorizontal: 20,
-    marginTop: 0,
-    flex: 5,
-  },
-  contactInfoContainer2: {
-    paddingHorizontal: 20,
-    marginTop: 0,
-    flex: 5,
-  },
-  contactInfoContainer3: {
-    paddingHorizontal: 20,
-    marginTop: 0,
-    flex: 15,
+  contactInfoContainer: {
+    flexDirection: "row", // Display contactInfo side by side
+    justifyContent: "space-between", // Add spacing between contactInfo
+    paddingHorizontal: "5%",
+    marginTop: "1%",
+    flex: 14,
   },
   contactInfo: {
     backgroundColor: "white",
     borderRadius: 16,
     padding: 20,
-    marginRight: 10,
+    width: "30%", // 3 containers side by side with spacing
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -93,10 +74,10 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   contactTitle: {
-    fontSize: 18,
+    fontSize: "3vw", // Responsive font size
     fontWeight: "bold",
     marginBottom: 10,
-    color: "text-blue-gray-900",
+    color: "pink", // Custom text color
   },
 });
 

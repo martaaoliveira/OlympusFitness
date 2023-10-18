@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 16,
     padding: 10,
-    width: "40%", // 3 containers side by side with spacing
+    width: "60%", // 3 containers side by side with spacing
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

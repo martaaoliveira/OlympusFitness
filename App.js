@@ -20,7 +20,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Home"
+          initialRouteName="Preços"
         >
           <Stack.Screen name="Olympus Fitness" component={HomePage} />
           <Stack.Screen name="Preços" component={PreçosScreen} />

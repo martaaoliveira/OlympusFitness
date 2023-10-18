@@ -16,7 +16,23 @@ const PreçosScreen = () => {
       <View style={styles.contentBelowImage}>
         <ScrollView contentContainerStyle={styles.formContainer}>
         </ScrollView>
-        <View style={styles.contactInfoContainer}>
+        <View style={styles.contactInfoContainer1}>
+          <View style={styles.contactInfo}>
+            <Text style={styles.contactTitle}>Os nossos Contactos</Text>
+            <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
+            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
+            <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
+          </View>
+        </View>
+        <View style={styles.contactInfoContainer2}>
+          <View style={styles.contactInfo}>
+            <Text style={styles.contactTitle}>Os nossos Contactos</Text>
+            <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
+            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
+            <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
+          </View>
+        </View>
+        <View style={styles.contactInfoContainer3}>
           <View style={styles.contactInfo}>
             <Text style={styles.contactTitle}>Os nossos Contactos</Text>
             <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
@@ -47,10 +63,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 0,
   },
-  contactInfoContainer: {
+  contactInfoContainer1: {
     paddingHorizontal: 20,
     marginTop: 0,
-    flex: 8,
+    flex: 5,
+  },
+  contactInfoContainer2: {
+    paddingHorizontal: 20,
+    marginTop: 0,
+    flex: 5,
+  },
+  contactInfoContainer3: {
+    paddingHorizontal: 20,
+    marginTop: 0,
+    flex: 15,
   },
   contactInfo: {
     backgroundColor: "white",

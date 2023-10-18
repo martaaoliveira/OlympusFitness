@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     marginTop: height * 0.3, // Use a percentage of the screen height
-    marginLeft: height*-1.2,
+    marginRight: height*1.3,
   },
   olympusText: {
     fontSize: height * 0.1, // Use a percentage of the screen height

@@ -1,38 +1,52 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 import NavigationBar from "./NavigationBar";
 
 const yourNewImage = require("./assets/images/background_contactos.jpg");
+const contactInfoBackground1 = require("./assets/images/osteopatia.jpg");
+const contactInfoBackground2 = require("./assets/images/background_contactos.jpg");
+const contactInfoBackground3 = require("./assets/images/background_contactos.jpg");
+const contactInfoBackground4 = require("./assets/images/background_contactos.jpg");
 
 const PreçosScreen = () => {
   return (
     <View style={styles.container}>
       <NavigationBar title="Formulário" />
 
-      <Image source={yourNewImage} style={styles.topImage} />
-      <View style={styles.contentBelowImage}>
+      <ImageBackground source={yourNewImage} style={styles.topImage}>
         <ScrollView contentContainerStyle={styles.formContainer}>
           {/* Your form content here */}
         </ScrollView>
-        <View style={styles.contactInfoContainer}>
-          {renderContactInfo("1")}
-          {renderContactInfo("2")}
-          {renderContactInfo("3")}
-          {renderContactInfo("4")}
+      </ImageBackground>
 
+      <View style={styles.contentBelowImage}>
+        <View style={styles.contactInfoContainer}>
+          <View style={styles.contactInfoRow}>
+            {renderContactInfo("1", "Osteopatia", "A partir de 50 euros por sessão!", contactInfoBackground1)}
+            {renderContactInfo("2", "Treino Livre", "A partir de 40 euros por mês!", contactInfoBackground2)}
+          </View>
+          <View style={styles.contactInfoRow}>
+            {renderContactInfo("3", "Treino Personalizado", "A partir de 120 euros por mês!", contactInfoBackground3)}
+            {renderContactInfo("4", "Plano de Nutrição", "A partir de 40 euros por sessão!", contactInfoBackground4)}
+          </View>
         </View>
       </View>
     </View>
   );
 };
 
-const renderContactInfo = (contactNumber) => {
+const renderContactInfo = (contactNumber, title, price, background) => {
   return (
     <View style={styles.contactInfo}>
-      <Text style={styles.contactTitle}>Os nossos Contactos {contactNumber}</Text>
-      <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
-      <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
-      <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
+      <ImageBackground source={background} style={styles.contactImage}>
+        <View style={styles.overlay}>
+          <Text style={styles.contactTitle}>{title}</Text>
+          <Text style={styles.contactPrice}>{price}</Text>
+          <TouchableOpacity style={styles.learnMoreButton}>
+            <Text style={styles.buttonText}>Clique para mais informações</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     </View>
   );
 };
@@ -55,31 +69,47 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   contactInfoContainer: {
-    flexDirection: "column", // Display contactInfo side by side
-    justifyContent: "space-between", // Add spacing between contactInfo
-    paddingHorizontal: "5%",
-    marginTop: "1%",
-    flex: 18,
+    flexDirection: "column",
+    paddingHorizontal: "3%",
+    justifyContent: "center",
+    flex: 15,
+  },
+  contactInfoRow: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
   },
   contactInfo: {
-    backgroundColor: "white",
     borderRadius: 16,
-    padding: 10,
-    width: "60%", // 3 containers side by side with spacing
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    width: "45%",
+    margin: 20,
+  },
+  contactImage: {
+    width: "100%",
+    height: 750,
+  },
+  overlay: {
+    backgroundColor: "rgba(0,0,0,0.6)",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   contactTitle: {
-    fontSize: "2vw", // Responsive font size
+    fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 20,
-    color: "pink", // Custom text color
+    color: "white",
+  },
+  contactPrice: {
+    fontSize: 16,
+    color: "white",
+  },
+  learnMoreButton: {
+    backgroundColor: "blue",
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "white",
   },
 });
 

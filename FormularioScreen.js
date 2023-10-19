@@ -123,9 +123,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   contactInfoContainer: {
-    paddingHorizontal: 20,
-    marginTop: 0,
-    flex: 5,
+    flex: 16,
   },
   contactInfo: {
     backgroundColor: "white",

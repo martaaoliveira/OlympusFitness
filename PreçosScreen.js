@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from "react-native";
 import NavigationBar from "./NavigationBar";
 
 const yourNewImage = require("./assets/images/background_contactos.jpg");
@@ -8,12 +8,14 @@ const contactInfoBackground2 = require("./assets/images/background_contactos.jpg
 const contactInfoBackground3 = require("./assets/images/background_contactos.jpg");
 const contactInfoBackground4 = require("./assets/images/background_contactos.jpg");
 
+const screenHeight = Dimensions.get("window").height;
+
 const PreçosScreen = () => {
   return (
     <View style={styles.container}>
       <NavigationBar title="Formulário" />
 
-      <ImageBackground source={yourNewImage} style={styles.topImage}>
+      <ImageBackground source={yourNewImage} style={{ ...styles.topImage, height: screenHeight * 0.3 }}>
         <ScrollView contentContainerStyle={styles.formContainer}>
           {/* Your form content here */}
         </ScrollView>
@@ -58,7 +60,9 @@ const styles = StyleSheet.create({
   },
   topImage: {
     width: "100%",
-    height: 200,
+  height: null,
+  resizeMode: "cover",
+  aspectRatio: 16 / 9, // Set the aspect ratio to maintain the image proportions
   },
   contentBelowImage: {
     flex: 1,
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
   },
   contactImage: {
     width: "100%",
-    height: 750,
+    aspectRatio: 16 / 9,
   },
   overlay: {
     backgroundColor: "rgba(0,0,0,0.6)",

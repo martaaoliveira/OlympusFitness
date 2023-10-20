@@ -8,7 +8,10 @@ const contactInfoBackground2 = require("./assets/images/background_contactos.jpg
 const contactInfoBackground3 = require("./assets/images/background_contactos.jpg");
 const contactInfoBackground4 = require("./assets/images/background_contactos.jpg");
 
+const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
+
+const isPhone = screenWidth < 600; // Adjust this breakpoint based on your needs
 
 const PreçosScreen = () => {
   return (
@@ -22,15 +25,11 @@ const PreçosScreen = () => {
       </ImageBackground>
 
       <View style={styles.contentBelowImage}>
-        <View style={styles.contactInfoContainer}>
-          <View style={styles.contactInfoRow}>
-            {renderContactInfo("1", "Osteopatia", "A partir de 50 euros por sessão!", contactInfoBackground1)}
-            {renderContactInfo("2", "Treino Livre", "A partir de 40 euros por mês!", contactInfoBackground2)}
-          </View>
-          <View style={styles.contactInfoRow}>
-            {renderContactInfo("3", "Treino Personalizado", "A partir de 120 euros por mês!", contactInfoBackground3)}
-            {renderContactInfo("4", "Plano de Nutrição", "A partir de 40 euros por sessão!", contactInfoBackground4)}
-          </View>
+        <View style={isPhone ? styles.contactInfoContainerPhone : styles.contactInfoContainer}>
+          {renderContactInfo("1", "Osteopatia", "A partir de 50 euros por sessão!", contactInfoBackground1)}
+          {renderContactInfo("2", "Treino Livre", "A partir de 40 euros por mês!", contactInfoBackground2)}
+          {renderContactInfo("3", "Treino Personalizado", "A partir de 120 euros por mês!", contactInfoBackground3)}
+          {renderContactInfo("4", "Plano de Nutrição", "A partir de 40 euros por sessão!", contactInfoBackground4)}
         </View>
       </View>
     </View>
@@ -39,7 +38,7 @@ const PreçosScreen = () => {
 
 const renderContactInfo = (contactNumber, title, price, background) => {
   return (
-    <View style={styles.contactInfo}>
+    <View style={isPhone ? styles.contactInfoPhone : styles.contactInfo}>
       <ImageBackground source={background} style={styles.contactImage}>
         <View style={styles.overlay}>
           <Text style={styles.contactTitle}>{title}</Text>
@@ -60,9 +59,9 @@ const styles = StyleSheet.create({
   },
   topImage: {
     width: "100%",
-  height: null,
-  resizeMode: "cover",
-  aspectRatio: 16 / 9, // Set the aspect ratio to maintain the image proportions
+    height: null,
+    resizeMode: "cover",
+    aspectRatio: 16 / 9,
   },
   contentBelowImage: {
     flex: 1,
@@ -73,19 +72,22 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   contactInfoContainer: {
-    flexDirection: "column",
-    paddingHorizontal: "3%",
-    justifyContent: "center",
-    flex: 15,
-  },
-  contactInfoRow: {
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    flexWrap: "wrap", // For two or more items in a row
+    justifyContent: "space-between", // To evenly space the items
+  },
+  contactInfoContainerPhone: {
+    flexDirection: "column", // For one item per row on smaller screens
   },
   contactInfo: {
     borderRadius: 16,
-    width: "45%",
-    margin: 20,
+    width: isPhone ? "90%" : "45%", // Adjust the width based on the screen size
+    margin: isPhone ? 10 : 20, // Adjust the margin based on the screen size
+  },
+  contactInfoPhone: {
+    borderRadius: 16,
+    width: "90%",
+    margin: 10,
   },
   contactImage: {
     width: "100%",

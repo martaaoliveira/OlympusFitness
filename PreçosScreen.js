@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   contactInfoContainer: {
     flexDirection: "row",
     flexWrap: "wrap", // For two or more items in a row
-    justifyContent: "space-between", // To evenly space the items
+    justifyContent: "space-evenly", // To evenly space the items
   },
   contactInfoContainerPhone: {
     flexDirection: "column", // For one item per row on smaller screens

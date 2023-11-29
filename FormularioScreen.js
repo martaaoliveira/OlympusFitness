@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image, CheckBox } from "react-native";
 import NavigationBar from "./NavigationBar";
-
+import { Linking } from "react-native";
 const yourImage = require("./assets/images/espaço.jpg");
 const yourNewImage = require("./assets/images/background_contactos.jpg");
 
@@ -11,15 +11,17 @@ const FormularioScreen = () => {
   const [number, setNumber] = useState("");
   const [text, setText] = useState("");
   const [isCheckbox1Checked, setCheckbox1Checked] = useState(false);
-  const [isCheckbox2Checked, setCheckbox2Checked] = useState(false);
 
   const handleFormSubmit = () => {
-    if (isCheckbox1Checked && isCheckbox2Checked) {
-      // Continue with form submission
-      // Handle form submission here
+    if (isCheckbox1Checked) {
+      const message = `Name: ${name}\nEmail: ${email}\nNumber: ${number}\nText: ${text}`;
+      const whatsappLink = `https://wa.me/911781175?text=${encodeURIComponent(message)}`;
+  
+      Linking.openURL(whatsappLink).catch((err) =>
+        console.error('Failed to open WhatsApp:', err)
+      );
     } else {
-      // Display an error message or prevent form submission
-      console.log("Please check both checkboxes to proceed.");
+      console.log('Please agree to the terms to proceed.');
     }
   };
 
@@ -75,7 +77,7 @@ Para lhe fornecermos os conteúdos pedidos, precisamos de armazenar e processar 
           <View style={styles.contactInfo}>
             <Text style={styles.contactTitle}>Os nossos Contactos</Text>
             <Text><i className="fa fa-phone mr-2"></i> +91-9998887776</Text>
-            <Text><i className="fa fa-envelope mr-2"></i> feedback@geeksforgeeks.org</Text>
+            <Text><i className="fa fa-envelope mr-2"></i> geral.olympusfitness@gmail.com</Text>
             <Text><i className="fa-solid fa-map-pin mr-2"></i> A-143, 9th Floor, Sovereign Corporate Tower, Sector-136, Noida, Uttar Pradesh</Text>
           </View>
         </View>

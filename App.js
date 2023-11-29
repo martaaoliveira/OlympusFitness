@@ -9,7 +9,6 @@ import LoginScreen from "./Login-Register-Pages/LoginScreen";
 import ServiçosScreen from "./ServiçosScreen";
 import RegisterScreen from "./Login-Register-Pages/RegisterScreen";
 import FormularioScreen from "./FormularioScreen";
-
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -20,7 +19,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Preços"
+          initialRouteName="Formulario"
         >
           <Stack.Screen name="Olympus Fitness" component={HomePage} />
           <Stack.Screen name="Preços" component={PreçosScreen} />

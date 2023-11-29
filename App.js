@@ -19,7 +19,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName="Formulario"
+          initialRouteName="Olympus Fitness"
         >
           <Stack.Screen name="Olympus Fitness" component={HomePage} />
           <Stack.Screen name="Preços" component={PreçosScreen} />
